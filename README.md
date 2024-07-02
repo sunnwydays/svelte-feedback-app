@@ -1,1 +1,1 @@
-Simple feedback form in Svelte that allows the user to submit feedback which is then displayed and can be closed, complete with animations.
+Simple feedback form in Svelte that allows the user to submit feedback. Feedback is displayed in cards which can be closed, complete with animations.
