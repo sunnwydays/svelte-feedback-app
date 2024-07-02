@@ -1,18 +1,21 @@
 <script>
   import { v4 as uuidv4 } from "uuid";
-  import { createEventDispatcher } from "svelte";
+  // import { createEventDispatcher } from "svelte";
+  import { FeedbackStore } from "../stores";
   import { slide } from "svelte/transition";
   import Card from "./Card.svelte";
   import Button from "./Button.svelte";
   import RatingSelect from "./RatingSelect.svelte";
 
-  const dispatch = createEventDispatcher();
+  // const dispatch = createEventDispatcher();
 
   let text = "";
   let rating = "";
   let disabled = true;
   let message = "";
   let min = 10;
+
+  let feedback = [];
 
   $: {  // reactive statement
     if (text == "") {
@@ -39,7 +42,8 @@
       }; //plus sign to convert to number
 
       message = "Thank you for your feedback!";
-      dispatch("add-feedback", newFeedback); // dispatch needed to notify parent component of change
+      // dispatch("add-feedback", newFeedback); // dispatch needed to notify parent component of change
+      FeedbackStore.update(currentFeedback => [newFeedback, ...currentFeedback]);
       text = "";
     //   rating = ""  if you wanted to do this 
       setTimeout(() => {

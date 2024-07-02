@@ -3,46 +3,33 @@
   import FeedbackStats from "./components/FeedbackStats.svelte";
   import FeedbackForm from "./components/FeedbackForm.svelte";
 
-  let feedback = [
-    {
-      id: 1,
-      rating: 10,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    {
-      id: 2,
-      rating: 9,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-    {
-      id: 3,
-      rating: 7,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    },
-  ];
+  // $: count = feedback.length;
+  // $: average = feedback.length > 0
+  //   ? (feedback.reduce((a, { rating }) => a + rating, 0) / feedback.length).toFixed(1)
+  //   : '0.0';
 
-  $: count = feedback.length;
-  $: average = feedback.length > 0
-    ? (feedback.reduce((a, { rating }) => a + rating, 0) / feedback.length).toFixed(1)
-    : '0.0';
+//   const addFeedback = (e) => {
+//     feedback = [e.detail, ...feedback];
+//   };
 
-  const addFeedback = (e) => {
-    feedback = [e.detail, ...feedback];
-  };
-
-  const deleteFeedback = (e) => {
-    const itemId = e.detail;
-    feedback = feedback.filter((item) => item.id !== itemId);
-  };
-</script>
+//   const deleteFeedback = (e) => {
+//     const itemId = e.detail;
+//     feedback = feedback.filter((item) => item.id !== itemId);
+//   };
+// </script>
 
 <main class="container">
-  <FeedbackForm on:add-feedback={addFeedback} />
-  <FeedbackStats {count} {average} />
-  <FeedbackList {feedback} on:delete-feedback={deleteFeedback} />
+  <!-- <FeedbackForm on:add-feedback={addFeedback} /> -->
+  <FeedbackForm />
+  <!-- <FeedbackStats {count} {average} /> -->
+  <FeedbackStats />
+  <!-- <FeedbackList {feedback} on:delete-feedback={deleteFeedback} /> -->
+  <FeedbackList />
 </main>
 
-<!-- <script>
+
+<!-- svelte demo
+<script>
 	let firstName = 'John';
 	let lastName = 'Deere';
 	let color = 'green';
