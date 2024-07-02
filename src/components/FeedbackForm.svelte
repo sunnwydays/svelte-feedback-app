@@ -15,8 +15,6 @@
   let message = "";
   let min = 10;
 
-  let feedback = [];
-
   $: {  // reactive statement
     if (text == "") {
         message = "";
@@ -45,10 +43,10 @@
       // dispatch("add-feedback", newFeedback); // dispatch needed to notify parent component of change
       FeedbackStore.update(currentFeedback => [newFeedback, ...currentFeedback]);
       text = "";
-    //   rating = ""  if you wanted to do this 
-      setTimeout(() => {
-        message = "";
-      }, 3000);
+      rating = "";
+      // setTimeout(() => {
+      //   message = "";
+      // }, 3000); // cleared error message if user quickly submits another feedback
     }
   };
 </script>
@@ -58,7 +56,7 @@
     <h2>Rate your service today</h2>
   </header>
   <form on:submit|preventDefault={handleSubmit}>
-    <RatingSelect on:rating-select={handleSelect} />
+    <RatingSelect on:rating-select={handleSelect} {rating} />
     <div class="input-group">
       <input
         type="text"

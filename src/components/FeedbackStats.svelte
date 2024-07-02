@@ -10,7 +10,7 @@
       ? (
           $FeedbackStore.reduce((accumulator, { rating }) => accumulator + rating, 0) / $FeedbackStore.length
         ).toFixed(1)
-      : "0.0";
+      : "🐢";
 </script>
 
 <div class="feedback-stats">
