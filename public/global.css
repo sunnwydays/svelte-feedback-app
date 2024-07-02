@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+IT+Moderna:wght@100..400&family=Playwrite+MX:wght@100..400&display=swap');
+
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: 'Playwrite MX', sans-serif;
+	background-color: #202142;
+	line-height: 1.6;
+	color: white;
+}
+
+ul {
+	list-style-type: none;
+}
+
+.container {
+	max-width: 768px;
+	margin: 9rem auto;
+	padding: 0 2rem;
+}
